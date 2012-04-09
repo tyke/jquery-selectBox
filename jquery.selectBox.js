@@ -11,7 +11,15 @@
 if(jQuery) (function($) {
 
 	$.extend($.fn, {
-
+	    static_data: {},
+        data: function( key, val ) {
+            if( arguments.length == 2 ) {
+                this.static_data[ key ] = val
+                return this
+            } else {
+                return this.static_data[ key ]
+            }
+        },
 		selectBox: function(method, data) {
 
 			var typeTimer,
